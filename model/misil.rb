@@ -1,4 +1,4 @@
-class Nave
+class Misil
 
 
 
@@ -7,7 +7,7 @@ class Nave
     @vida = 100;
     @masa = 100;
     @estado = 'vivo'
-    @representacion = 'nave'
+    @representacion = 'misil'
 
   end
 
