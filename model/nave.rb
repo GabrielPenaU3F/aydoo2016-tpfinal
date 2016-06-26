@@ -7,6 +7,7 @@ class Nave
     @vida = 100;
     @masa = 100;
     @estado = 'vivo'
+    @representacion = 'nave'
 
   end
 
@@ -23,6 +24,20 @@ class Nave
 
   end
 
+  def get_estado
+
+    actualizar_estado
+    return @estado
+
+  end
+
+  def get_representacion
+
+    return @representacion
+
+  end
+
+
   def set_vida vida
 
     @vida = vida
@@ -35,12 +50,6 @@ class Nave
 
   end
 
-  def get_estado
-
-    actualizar_estado
-    return @estado
-
-  end
 
   def actualizar_estado
 
@@ -51,6 +60,11 @@ class Nave
     end
 
   end
+
+
+
+
+
 
 
 end
