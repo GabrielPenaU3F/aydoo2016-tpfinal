@@ -29,6 +29,17 @@ describe 'Nave' do
 
   end
 
+  it 'deberia estar vivo apenas es creado' do
+
+    misil = Misil.new
+    expect(misil.get_estado).to eq 'vivo'
+
+  end
+
+
+
+
+
 
 
 end
