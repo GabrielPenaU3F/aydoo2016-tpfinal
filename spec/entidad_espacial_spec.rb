@@ -79,4 +79,11 @@ describe 'EntidadEspacial' do
 
   end
 
+  it 'no deberia poder setearle menos de 0 de masa' do
+
+    objeto = EntidadEspacial.new
+    expect{objeto.set_masa -1}.to raise_exception(ValorInvalidoException)
+
+  end
+
 end

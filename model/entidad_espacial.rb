@@ -36,17 +36,23 @@ class EntidadEspacial
 
   def set_vida vida
 
-    if vida < 0
-      raise(ValorInvalidoException.new)
-    end
-
+    validar_valor_a_setear(vida)
     @vida = vida
     actualizar_estado
 
   end
 
+  def validar_valor_a_setear(valor)
+
+    if valor < 0
+      raise(ValorInvalidoException.new)
+    end
+
+  end
+
   def set_masa masa
 
+    validar_valor_a_setear(masa)
     @masa = masa
     actualizar_estado
 
