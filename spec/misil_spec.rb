@@ -21,4 +21,14 @@ describe 'Nave' do
   end
 
 
+  it 'deberia poder setearle 200 de masa' do
+
+    misil = Misil.new
+    misil.set_masa 200
+    expect(misil.get_masa).to eq 200
+
+  end
+
+
+
 end
