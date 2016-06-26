@@ -4,6 +4,8 @@ require_relative '../model/entidad_espacial'
 require_relative '../model/nave'
 require_relative '../model/misil'
 require_relative '../model/bomba'
+require_relative '../model/asteroide'
+require_relative '../model/estrella'
 require_relative '../model/colision'
 
 describe 'Colisiones de la nave' do
@@ -63,6 +65,16 @@ describe 'Colisiones de la nave' do
     bomba_chocada = Bomba.new
     nave_chocante.colisionar_con bomba_chocada
     expect(bomba_chocada.get_vida).to eq 0
+
+  end
+
+  #Nave-asteroide
+  it 'la nave chocante deberia disminuir su masa en un 50% de la del asteroide al chocarlo' do
+
+    nave_chocante = Nave.new
+    asteroide_chocado = Asteroide.new
+    nave_chocante.colisionar_con asteroide_chocado
+    expect(nave_chocante.get_masa).to eq 50
 
   end
 

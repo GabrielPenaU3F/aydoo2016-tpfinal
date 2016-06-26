@@ -4,7 +4,6 @@ class Colision
 
   def initialize objeto_chocante, objeto_chocado
 
-    mapear_efectos
     ejecutar_choque objeto_chocante, objeto_chocado
 
   end
@@ -17,7 +16,7 @@ class Colision
   def ejecutar_choque objeto_chocante, objeto_chocado
 
     clave_choque = ('@' + objeto_chocante.get_representacion + '#' + objeto_chocado.get_representacion)
-    resultado = @mapa_efectos[clave_choque]
+    resultado = obtener_metodos_y_parametros_correspondientes(clave_choque, objeto_chocante, objeto_chocado)
     metodo_chocante = resultado[0].bind objeto_chocante
     metodo_chocante.call resultado[1]
     metodo_chocado = resultado[2].bind objeto_chocado
@@ -25,7 +24,7 @@ class Colision
 
   end
 
-  def mapear_efectos
+  def obtener_metodos_y_parametros_correspondientes(clave_choque, objeto_chocante, objeto_chocado)
 
     @mapa_efectos = Hash.new
 
@@ -33,8 +32,13 @@ class Colision
     @mapa_efectos['@nave#nave'] = [Nave.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 100]
     @mapa_efectos['@nave#misil'] = [Nave.new.method(:disminuir_vida).unbind, 80, Misil.new.method(:disminuir_vida).unbind, 100]
     @mapa_efectos['@nave#bomba'] = [Nave.new.method(:disminuir_vida).unbind, 50, Bomba.new.method(:disminuir_vida).unbind, 100]
+    @mapa_efectos['@nave#asteroide'] = [Nave.new.method(:disminuir_masa).unbind, objeto_chocado.get_masa/2, Asteroide.new.method(:aumentar_masa).unbind, objeto_chocante.get_masa/10]
 
+    resultado = @mapa_efectos[clave_choque]
+
+    return resultado
 
   end
+
 
 end

@@ -91,4 +91,26 @@ class EntidadEspacial
 
   end
 
+  def aumentar_vida unidades
+
+    @vida += unidades
+
+  end
+
+  def disminuir_masa unidades
+
+    if @masa - unidades < 0
+      set_masa 0
+    else
+      @masa -= unidades
+    end
+
+  end
+
+  def aumentar_masa unidades
+
+    @masa += unidades
+
+  end
+
 end
