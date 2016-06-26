@@ -86,7 +86,16 @@ describe 'Colisiones de la nave' do
     expect(asteroide_chocado.get_masa).to eq 110
 
   end
-  
+
+  #Nave-estrella
+  it 'la nave chocante deberia aumentar su vida en una cantidad igual a la de la estrella al chocarla' do
+
+    nave_chocante = Nave.new
+    estrella_chocada = Estrella.new
+    nave_chocante.colisionar_con estrella_chocada
+    expect(nave_chocante.get_vida).to eq 200
+
+  end
 
 
 end
