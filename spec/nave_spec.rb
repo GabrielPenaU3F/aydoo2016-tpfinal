@@ -20,4 +20,12 @@ describe 'Nave' do
 
   end
 
+  it 'deberia poder setearle 200 de masa' do
+
+    nave = Nave.new
+    nave.set_masa 200
+    expect(nave.get_masa).to eq 200
+
+  end
+
 end
