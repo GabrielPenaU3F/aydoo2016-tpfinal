@@ -60,4 +60,13 @@ describe 'Colisiones del misil' do
 
   end
 
+  it 'la bomba chocada deberia recibir un danio de 50% al ser chocada por un misil' do
+
+    misil_chocante = Misil.new
+    bomba_chocada = Bomba.new
+    misil_chocante.colisionar_con bomba_chocada
+    expect(bomba_chocada.get_vida).to eq 50
+
+  end
+
 end
