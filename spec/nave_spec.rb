@@ -35,4 +35,13 @@ describe 'Nave' do
 
   end
 
+  it 'deberia estar viva si tiene mas de 0 de vida y masa' do
+
+    nave = Nave.new
+    nave.set_vida 70
+    nave.set_masa 50
+    expect(nave.get_estado).to eq 'vivo'
+
+  end
+
 end
