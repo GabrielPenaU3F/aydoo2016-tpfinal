@@ -1,4 +1,5 @@
 require_relative '../model/nave'
+require_relative '../model/misil'
 
 class Colision
 
@@ -29,8 +30,10 @@ class Colision
 
     @mapa_efectos = Hash.new
     #El array de resultado_chocante_chocado funciona asi: [metodo del chocante, argumento, metodo del chocado, argumento]
-    resultado_nave_nave = [Nave.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 100]
-    @mapa_efectos['@nave#nave'] = resultado_nave_nave
+
+    @mapa_efectos['@nave#nave'] = [Nave.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 100]
+    @mapa_efectos['@nave#misil'] = [Nave.new.method(:disminuir_vida).unbind, 80, Misil.new.method(:disminuir_vida).unbind, 100]
+
 
   end
 
