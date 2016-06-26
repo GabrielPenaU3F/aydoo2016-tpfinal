@@ -9,6 +9,7 @@ class Nave
 
   end
 
+
   def get_vida
 
     return @vida
@@ -20,5 +21,18 @@ class Nave
     return @masa
 
   end
+
+  def set_vida vida
+
+    @vida = vida
+
+  end
+
+  def set_masa masa
+
+    @masa = masa
+
+  end
+
 
 end

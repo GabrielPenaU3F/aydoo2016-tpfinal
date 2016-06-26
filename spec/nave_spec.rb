@@ -12,5 +12,12 @@ describe 'Nave' do
 
   end
 
+  it 'deberia poder setearle 300 de vida' do
+
+    nave = Nave.new
+    nave.set_vida 300
+    expect(nave.get_vida).to eq 300
+
+  end
 
 end
