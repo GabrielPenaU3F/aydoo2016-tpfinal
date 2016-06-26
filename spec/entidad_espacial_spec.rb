@@ -118,4 +118,20 @@ describe 'EntidadEspacial' do
 
   end
 
+  it 'deberia quedar en 150 de vida si la aumento en 50' do
+
+    objeto = EntidadEspacial.new
+    objeto.aumentar_vida 50
+    expect(objeto.get_vida).to eq 150
+
+  end
+
+  it 'deberia quedar en 150 de masa si la aumento en 50' do
+
+    objeto = EntidadEspacial.new
+    objeto.aumentar_masa 50
+    expect(objeto.get_masa).to eq 150
+
+  end
+
 end
