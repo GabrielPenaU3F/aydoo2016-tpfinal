@@ -1,7 +1,6 @@
 require 'rspec'
 require 'spec_helper'
 require_relative '../model/entidad_espacial'
-require_relative '../model/nave'
 require_relative '../model/colision'
 
 describe 'Colisiones de la nave' do
@@ -30,6 +29,15 @@ describe 'Colisiones de la nave' do
     misil_chocado = Misil.new
     nave_chocante.colisionar_con misil_chocado
     expect(nave_chocante.get_vida).to eq 20
+
+  end
+
+  it 'el misil chocado deberia recibir 100 de daño a la vida al ser chocado por una nave' do
+
+    nave_chocante = Nave.new
+    misil_chocado = Misil.new
+    nave_chocante.colisionar_con misil_chocado
+    expect(misil_chocado.get_vida).to eq 0
 
   end
 
