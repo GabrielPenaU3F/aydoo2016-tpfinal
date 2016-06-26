@@ -44,4 +44,12 @@ describe 'Nave' do
 
   end
 
+  it 'deberia estar muerta si tiene mas de 0 de vida' do
+
+    nave = Nave.new
+    nave.set_vida 0
+    expect(nave.get_estado).to eq 'muerto'
+
+  end
+
 end

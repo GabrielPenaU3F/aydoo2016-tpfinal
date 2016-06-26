@@ -37,7 +37,18 @@ class Nave
 
   def get_estado
 
+    actualizar_estado
     return @estado
+
+  end
+
+  def actualizar_estado
+
+    if (@vida == 0 || @masa == 0)
+
+      @estado = 'muerto'
+
+    end
 
   end
 
