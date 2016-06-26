@@ -28,4 +28,11 @@ describe 'Nave' do
 
   end
 
+  it 'deberia estar viva apenas es creada' do
+
+    nave = Nave.new
+    expect(nave.get_estado).to eq 'vivo'
+
+  end
+
 end

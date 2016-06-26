@@ -6,6 +6,7 @@ class Nave
 
     @vida = 100;
     @masa = 100;
+    @estado = 'vivo'
 
   end
 
@@ -31,6 +32,12 @@ class Nave
   def set_masa masa
 
     @masa = masa
+
+  end
+
+  def get_estado
+
+    return @estado
 
   end
 
