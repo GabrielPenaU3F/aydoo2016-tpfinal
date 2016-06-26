@@ -42,14 +42,6 @@ class EntidadEspacial
 
   end
 
-  def validar_valor_a_setear(valor)
-
-    if valor < 0
-      raise(ValorInvalidoException.new)
-    end
-
-  end
-
   def set_masa masa
 
     validar_valor_a_setear(masa)
@@ -58,6 +50,14 @@ class EntidadEspacial
 
   end
 
+
+  def validar_valor_a_setear(valor)
+
+    if valor < 0
+      raise(ValorInvalidoException.new)
+    end
+
+  end
 
   def actualizar_estado
 
@@ -81,10 +81,13 @@ class EntidadEspacial
 
   end
 
-
   def disminuir_vida unidades
 
-    @vida -= unidades
+    if @vida - unidades < 0
+      set_vida 0
+    else
+      @vida -= unidades
+    end
 
   end
 

@@ -86,4 +86,12 @@ describe 'EntidadEspacial' do
 
   end
 
+  it 'deberia quedar en 0 de vida como minimo al recibir mas danio' do
+
+    objeto = EntidadEspacial.new
+    objeto.disminuir_vida 120
+    expect(objeto.get_vida).to eq 0
+
+  end
+
 end
