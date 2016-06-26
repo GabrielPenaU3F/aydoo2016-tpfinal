@@ -94,4 +94,12 @@ describe 'EntidadEspacial' do
 
   end
 
+  it 'deberia quedar en 0 de masa como minimo al perder masa' do
+
+    objeto = EntidadEspacial.new
+    objeto.disminuir_masa 120
+    expect(objeto.get_masa).to eq 0
+
+  end
+
 end
