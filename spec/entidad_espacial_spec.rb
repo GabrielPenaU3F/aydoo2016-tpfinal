@@ -94,6 +94,14 @@ describe 'EntidadEspacial' do
 
   end
 
+  it 'deberia quedar en 50 de masa si la disminuyo en 50' do
+
+    objeto = EntidadEspacial.new
+    objeto.disminuir_masa 50
+    expect(objeto.get_masa).to eq 50
+
+  end
+
   it 'deberia quedar en 0 de vida como minimo al recibir mas danio' do
 
     objeto = EntidadEspacial.new
