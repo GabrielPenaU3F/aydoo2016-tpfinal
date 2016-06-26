@@ -52,7 +52,7 @@ describe 'Colisiones de la bomba' do
   end
 
   #Bomba-bomba
-  it 'la bomba chocante deberia recibir 100 de daño a la vida al chocar otra bomba' do
+  it 'la bomba chocante deberia recibir 100 de danio a la vida al chocar otra bomba' do
 
     bomba_chocante = Bomba.new
     bomba_chocada = Bomba.new
@@ -61,7 +61,7 @@ describe 'Colisiones de la bomba' do
 
   end
 
-  it 'la bomba chocada deberia recibir 100 de daño a la vida al ser chocada por otra bomba' do
+  it 'la bomba chocada deberia recibir 100 de danio a la vida al ser chocada por otra bomba' do
 
     bomba_chocante = Bomba.new
     bomba_chocada = Bomba.new
@@ -89,6 +89,16 @@ describe 'Colisiones de la bomba' do
     expect(asteroide_chocado.get_vida).to eq 100
     expect(asteroide_chocado.get_masa).to eq 100
 
+
+  end
+
+  #Bomba-estrella
+  it 'la bomba chocante deberia recibir 100 de danio a la vida al chocar una estrella' do
+
+    bomba_chocante = Bomba.new
+    estrella_chocada = Estrella.new
+    bomba_chocante.colisionar_con estrella_chocada
+    expect(bomba_chocante.get_vida).to eq 0
 
   end
 
