@@ -113,4 +113,9 @@ class EntidadEspacial
 
   end
 
+  def aplicar_efecto_nulo parametro_inutil #Este parametro es inutil pero es necesario para que funcione la implementacion de la colision
+
+
+  end
+
 end

@@ -38,6 +38,7 @@ class Colision
 
     @mapa_efectos['@misil#nave'] = [Misil.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 80]
     @mapa_efectos['@misil#misil'] = [Misil.new.method(:disminuir_vida).unbind, 100, Misil.new.method(:disminuir_vida).unbind, 100]
+    @mapa_efectos['@misil#bomba'] = [Misil.new.method(:aplicar_efecto_nulo).unbind, 0, Bomba.new.method(:disminuir_vida).unbind, objeto_chocado.get_vida/2]
 
 
     resultado = @mapa_efectos[clave_choque]

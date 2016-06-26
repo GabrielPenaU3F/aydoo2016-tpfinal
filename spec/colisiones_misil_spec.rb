@@ -49,5 +49,15 @@ describe 'Colisiones del misil' do
 
   end
 
+  #Misil-bomba
+  it 'el misil chocante deberia recibir efecto nulo al chocar una bomba' do
+
+    misil_chocante = Misil.new
+    bomba_chocada = Bomba.new
+    misil_chocante.colisionar_con bomba_chocada
+    expect(misil_chocante.get_vida).to eq 100
+    expect(misil_chocante.get_masa).to eq 100
+
+  end
 
 end
