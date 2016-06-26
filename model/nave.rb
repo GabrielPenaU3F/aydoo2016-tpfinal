@@ -62,6 +62,18 @@ class Nave
   end
 
 
+  def colisionar_con objeto
+
+    colision = Colision.new self, objeto
+
+  end
+
+
+  def disminuir_vida unidades
+
+    @vida -= unidades
+
+  end
 
 
 
