@@ -1,5 +1,4 @@
-require_relative '../model/nave'
-require_relative '../model/misil'
+require_relative '../model/entidad_espacial'
 
 class Colision
 
@@ -29,10 +28,11 @@ class Colision
   def mapear_efectos
 
     @mapa_efectos = Hash.new
-    #El array de resultado_chocante_chocado funciona asi: [metodo del chocante, argumento, metodo del chocado, argumento]
 
+    #El array de resultado_chocante_chocado funciona asi: [metodo a ejecutar del chocante, argumento, metodo a ejecutar del chocado, argumento]
     @mapa_efectos['@nave#nave'] = [Nave.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 100]
     @mapa_efectos['@nave#misil'] = [Nave.new.method(:disminuir_vida).unbind, 80, Misil.new.method(:disminuir_vida).unbind, 100]
+    @mapa_efectos['@nave#bomba'] = [Nave.new.method(:disminuir_vida).unbind, 50, Bomba.new.method(:disminuir_vida).unbind, 100]
 
 
   end
