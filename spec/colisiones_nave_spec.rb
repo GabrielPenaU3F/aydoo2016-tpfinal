@@ -97,5 +97,14 @@ describe 'Colisiones de la nave' do
 
   end
 
+  it 'la estrella chocada deberia perder toda su vida al ser chocada por una nave' do
+
+    nave_chocante = Nave.new
+    estrella_chocada = Estrella.new
+    nave_chocante.colisionar_con estrella_chocada
+    expect(estrella_chocada.get_vida).to eq 0
+
+  end
+
 
 end
