@@ -1,5 +1,6 @@
-class Misil < EntidadEspacial
+require_relative '../model/entidad_espacial'
 
+class Misil < EntidadEspacial
 
   def initialize
 
@@ -7,6 +8,5 @@ class Misil < EntidadEspacial
     @representacion = 'misil'
 
   end
-
 
 end

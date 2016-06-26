@@ -2,10 +2,7 @@ require 'rspec'
 require 'spec_helper'
 require_relative '../model/nave'
 
-
-
 describe 'Nave' do
-
 
   it 'deberia representarse con el string nave' do
 
@@ -13,6 +10,5 @@ describe 'Nave' do
     expect(nave.get_representacion).to eq 'nave'
 
   end
-
 
 end
