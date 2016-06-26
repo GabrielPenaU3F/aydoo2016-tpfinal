@@ -36,7 +36,14 @@ describe 'Nave' do
 
   end
 
+  it 'deberia estar vivo si tiene mas de 0 de vida y masa' do
 
+    misil = Misil.new
+    misil.set_vida 70
+    misil.set_masa 50
+    expect(misil.get_estado).to eq 'vivo'
+
+  end
 
 
 
