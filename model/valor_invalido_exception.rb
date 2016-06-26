@@ -1,0 +1,2 @@
+class ValorInvalidoException < Exception
+end

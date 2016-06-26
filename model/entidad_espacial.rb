@@ -36,6 +36,10 @@ class EntidadEspacial
 
   def set_vida vida
 
+    if vida < 0
+      raise(ValorInvalidoException.new)
+    end
+
     @vida = vida
     actualizar_estado
 

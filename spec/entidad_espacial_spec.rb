@@ -3,6 +3,7 @@ require 'spec_helper'
 require_relative '../model/entidad_espacial'
 require_relative '../model/colision'
 require_relative '../model/objeto_muerto_exception'
+require_relative '../model/valor_invalido_exception'
 
 
 describe 'EntidadEspacial' do
@@ -68,6 +69,13 @@ describe 'EntidadEspacial' do
     objeto = EntidadEspacial.new
     objeto.set_vida 0
     expect{objeto.colisionar_con(EntidadEspacial.new)}.to raise_exception(ObjetoMuertoException)
+
+  end
+
+  it 'no deberia poder setearle menos de 0 de vida' do
+
+    objeto = EntidadEspacial.new
+    expect{objeto.set_vida -1}.to raise_exception(ValorInvalidoException)
 
   end
 
