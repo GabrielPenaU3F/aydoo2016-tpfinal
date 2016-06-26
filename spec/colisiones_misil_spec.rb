@@ -80,4 +80,14 @@ describe 'Colisiones del misil' do
 
   end
 
+  it 'el asteroide chocado deberia recibir efecto nulo al ser chocado por un misil' do
+
+    misil_chocante = Misil.new
+    asteroide_chocado = Asteroide.new
+    misil_chocante.colisionar_con asteroide_chocado
+    expect(misil_chocante.get_vida).to eq 100
+    expect(misil_chocante.get_masa).to eq 100
+
+  end
+
 end
