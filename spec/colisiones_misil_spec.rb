@@ -30,5 +30,24 @@ describe 'Colisiones del misil' do
 
   end
 
+  #Misil-misil
+  it 'el misil chocante deberia recibir 100 de danio al chocar otro misil' do
+
+    misil_chocante = Misil.new
+    misil_chocado = Misil.new
+    misil_chocante.colisionar_con misil_chocado
+    expect(misil_chocante.get_vida).to eq 0
+
+  end
+
+  it 'el misil chocado deberia recibir 100 de danio al ser chocado por otro misil' do
+
+    misil_chocante = Misil.new
+    misil_chocado = Misil.new
+    misil_chocante.colisionar_con misil_chocado
+    expect(misil_chocado.get_vida).to eq 0
+
+  end
+
 
 end
