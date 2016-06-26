@@ -51,5 +51,15 @@ describe 'Colisiones de la bomba' do
 
   end
 
+  #Bomba-bomba
+  it 'la bomba chocante deberia recibir 100 de daño a la vida al chocar otra bomba' do
+
+    bomba_chocante = Bomba.new
+    bomba_chocada = Bomba.new
+    bomba_chocante.colisionar_con bomba_chocada
+    expect(bomba_chocante.get_vida).to eq 0
+
+  end
+
 
 end
