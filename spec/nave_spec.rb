@@ -1,6 +1,9 @@
 require 'rspec'
 require 'spec_helper'
 require_relative '../model/nave'
+require_relative '../model/colision'
+require_relative '../model/objeto_muerto_exception'
+
 
 describe 'Nave' do
 
@@ -64,6 +67,14 @@ describe 'Nave' do
 
     nave = Nave.new
     expect(nave.get_representacion).to eq 'nave'
+
+  end
+
+  it 'no deberia interactuar con otros objetos si esta muerta' do
+
+    nave = Nave.new
+    nave.set_vida 0
+    expect{nave.colisionar_con(Nave.new)}.to raise_exception(ObjetoMuertoException)
 
   end
 
