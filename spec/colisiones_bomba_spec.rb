@@ -30,5 +30,15 @@ describe 'Colisiones de la bomba' do
 
   end
 
+  #Bomba-misil
+  it 'la bomba chocante deberia perder el 50% de su vida al chocar un misil' do
+
+    bomba_chocante = Bomba.new
+    misil_chocado = Misil.new
+    bomba_chocante.colisionar_con misil_chocado
+    expect(bomba_chocante.get_vida).to eq 50
+
+  end
+
 
 end
