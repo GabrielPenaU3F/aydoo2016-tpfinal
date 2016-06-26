@@ -78,6 +78,15 @@ describe 'Colisiones de la nave' do
 
   end
 
+  it 'el asteroide chocado deberia aumentar su masa en un 10% de la de la nave al ser chocado por ella' do
+
+    nave_chocante = Nave.new
+    asteroide_chocado = Asteroide.new
+    nave_chocante.colisionar_con asteroide_chocado
+    expect(asteroide_chocado.get_masa).to eq 110
+
+  end
+
 
 
 end
