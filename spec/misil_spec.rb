@@ -12,4 +12,13 @@ describe 'Nave' do
 
   end
 
+  it 'deberia poder setearle 300 de vida' do
+
+    misil = Misil.new
+    misil.set_vida 300
+    expect(misil.get_vida).to eq 300
+
+  end
+
+
 end
