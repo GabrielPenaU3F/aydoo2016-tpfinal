@@ -86,7 +86,7 @@ describe 'Colisiones de la nave' do
     expect(asteroide_chocado.get_masa).to eq 110
 
   end
-
+  
 
 
 end
