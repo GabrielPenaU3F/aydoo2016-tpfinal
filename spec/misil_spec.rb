@@ -46,6 +46,16 @@ describe 'Nave' do
   end
 
 
+  it 'deberia estar muerta si tiene 0 de vida' do
+
+    misil = Misil.new
+    misil.set_vida 0
+    expect(misil.get_estado).to eq 'muerto'
+
+  end
+
+
+
 
 
 
