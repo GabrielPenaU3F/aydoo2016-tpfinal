@@ -70,5 +70,16 @@ describe 'Colisiones de la bomba' do
 
   end
 
+  #Bomba-asteroide
+  it 'la bomba chocante deberia perder toda su vida al chocar un asteroide' do
+
+    bomba_chocante = Bomba.new
+    asteroide_chocado = Asteroide.new
+    bomba_chocante.set_vida 1000000
+    bomba_chocante.colisionar_con asteroide_chocado
+    expect(bomba_chocante.get_vida).to eq 0
+
+  end
+
 
 end
