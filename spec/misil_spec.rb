@@ -60,11 +60,12 @@ describe 'Nave' do
 
   end
 
+  it 'deberia representarse con el string misil' do
 
+    misil = Misil.new
+    expect(misil.get_representacion).to eq 'misil'
 
-
-
-
+  end
 
 
 end
