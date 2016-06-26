@@ -1,8 +1,10 @@
 require 'rspec'
 require 'spec_helper'
 require_relative '../model/misil'
+require_relative '../model/colision'
+require_relative '../model/objeto_muerto_exception'
 
-describe 'Nave' do
+describe 'Misil' do
 
   it 'deberia inicializarse con 100 de vida y 100 de masa por default' do
 
@@ -64,6 +66,14 @@ describe 'Nave' do
 
     misil = Misil.new
     expect(misil.get_representacion).to eq 'misil'
+
+  end
+
+  it 'no deberia interactuar con otros objetos si esta muerto' do
+
+    misil = Misil.new
+    misil.set_vida 0
+    expect{misil.colisionar_con(Misil.new)}.to raise_exception(ObjetoMuertoException)
 
   end
 

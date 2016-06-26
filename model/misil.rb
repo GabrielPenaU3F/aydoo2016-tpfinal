@@ -26,7 +26,6 @@ class Misil
 
   def get_estado
 
-    actualizar_estado
     return @estado
 
   end
@@ -41,12 +40,14 @@ class Misil
   def set_vida vida
 
     @vida = vida
+    actualizar_estado
 
   end
 
   def set_masa masa
 
     @masa = masa
+    actualizar_estado
 
   end
 
@@ -64,7 +65,12 @@ class Misil
 
   def colisionar_con objeto
 
+    if @estado == 'muerto'
+      raise(ObjetoMuertoException.new)
+    end
+
     colision = Colision.new self, objeto
+    actualizar_estado
 
   end
 
