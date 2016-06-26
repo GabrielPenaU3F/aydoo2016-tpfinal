@@ -101,6 +101,7 @@ describe 'Colisiones de la nave' do
 
     nave_chocante = Nave.new
     estrella_chocada = Estrella.new
+    estrella_chocada.set_vida 1000000
     nave_chocante.colisionar_con estrella_chocada
     expect(estrella_chocada.get_vida).to eq 0
 
