@@ -51,4 +51,15 @@ describe 'Colisiones de la estrella' do
 
   end
 
+  #Estrella-bomba
+  it 'la estrella deberia perder toda su vida al chocar una bomba' do
+
+    estrella_chocante = Estrella.new
+    bomba_chocada = Bomba.new
+    estrella_chocante.colisionar_con bomba_chocada
+    expect(estrella_chocante.get_vida).to eq 0
+
+  end
+
+
 end
