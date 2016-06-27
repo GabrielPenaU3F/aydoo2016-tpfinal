@@ -42,6 +42,7 @@ class Colision
     @mapa_efectos['@estrella#nave'] = [Estrella.new.method(:disminuir_vida).unbind, objeto_chocante.get_vida, Nave.new.method(:aumentar_vida).unbind, objeto_chocante.get_vida]
     @mapa_efectos['@estrella#misil'] = [Estrella.new.method(:aplicar_efecto_nulo).unbind, 0, Misil.new.method(:aplicar_efecto_nulo).unbind, 0]
     @mapa_efectos['@estrella#bomba'] = [Estrella.new.method(:disminuir_vida).unbind, objeto_chocante.get_vida, Bomba.new.method(:disminuir_vida).unbind, 100]
+    @mapa_efectos['@estrella#asteroide'] = [Estrella.new.method(:disminuir_vida).unbind, objeto_chocante.get_vida, Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0]
 
   end
 
