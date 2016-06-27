@@ -92,5 +92,16 @@ describe 'Colisiones de la estrella' do
 
   end
 
+  #Estrella-estrella
+  it 'la estrella deberia perder toda su vida al chocar otra estrella' do
+
+    estrella_chocante = Estrella.new
+    estrella_chocada = Estrella.new
+    estrella_chocante.set_vida 1000000
+    estrella_chocante.colisionar_con estrella_chocada
+    expect(estrella_chocante.get_vida).to eq 0
+
+  end
+
 
 end
