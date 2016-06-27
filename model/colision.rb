@@ -43,6 +43,7 @@ class Colision
   def completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
     @mapa_efectos['@asteroide#nave'] = [Asteroide.new.method(:aumentar_masa).unbind, objeto_chocado.get_masa/10, Nave.new.method(:disminuir_masa).unbind, objeto_chocante.get_masa/2]
     @mapa_efectos['@asteroide#misil'] = [Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0, Misil.new.method(:aplicar_efecto_nulo).unbind, 0]
+    @mapa_efectos['@asteroide#bomba'] = [Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0, Bomba.new.method(:disminuir_vida).unbind, objeto_chocado.get_vida]
 
   end
 
