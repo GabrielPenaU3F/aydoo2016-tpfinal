@@ -78,4 +78,19 @@ describe 'Casos minimos de colisiones enviados por el profesor' do
 
   end
 
+  #Caso minimo: nave vs estrella
+  it 'deberia resolver correctamente la colision nave 100-100 vs estrella 50-50' do
+
+    nave_chocante = Nave.new
+    estrella_chocada = Estrella.new
+    estrella_chocada.set_vida 50
+    estrella_chocada.set_masa 50
+    nave_chocante.colisionar_con estrella_chocada
+    expect(nave_chocante.get_vida).to eq 150
+    expect(nave_chocante.get_masa).to eq 100
+    expect(estrella_chocada.get_vida).to eq 0
+    expect(estrella_chocada.get_masa).to eq 50
+
+  end
+
 end
