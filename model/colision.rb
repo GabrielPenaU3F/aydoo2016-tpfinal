@@ -17,16 +17,16 @@ class Colision
 
     construir_hash(objeto_chocado, objeto_chocante)
     clave_choque = generar_clave(objeto_chocado, objeto_chocante)
-    resultado = obtener_interaccion(clave_choque)
-    llamar_metodos(objeto_chocado, objeto_chocante, resultado)
+    interaccion = obtener_interaccion(clave_choque)
+    llamar_metodos(objeto_chocado, objeto_chocante, interaccion)
 
   end
 
-  def llamar_metodos(objeto_chocado, objeto_chocante, resultado)
-    metodo_chocante = resultado[0].bind objeto_chocante
-    metodo_chocante.call resultado[1]
-    metodo_chocado = resultado[2].bind objeto_chocado
-    metodo_chocado.call resultado[3]
+  def llamar_metodos(objeto_chocado, objeto_chocante, interaccion)
+    metodo_chocante = interaccion[0].bind objeto_chocante
+    metodo_chocante.call interaccion[1]
+    metodo_chocado = interaccion[2].bind objeto_chocado
+    metodo_chocado.call interaccion[3]
   end
 
   #Este metodo pese a tener solo una linea esta extraido como tal para facilitar la lectura del diagrama de secuencia
