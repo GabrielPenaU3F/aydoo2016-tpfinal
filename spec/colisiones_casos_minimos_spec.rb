@@ -44,4 +44,21 @@ describe 'Casos minimos de colisiones enviados por el profesor' do
 
   end
 
+  #Caso minimo: bomba vs bomba
+  it 'deberia resolver correctamente la colision bomba 200-90 vs bomba 20-45' do
+
+    bomba_chocante = Bomba.new
+    bomba_chocada = Bomba.new
+    bomba_chocante.set_vida 200
+    bomba_chocante.set_masa 90
+    bomba_chocada.set_vida 20
+    bomba_chocada.set_masa 45
+    bomba_chocante.colisionar_con bomba_chocada
+    expect(bomba_chocante.get_vida).to eq 100
+    expect(bomba_chocante.get_masa).to eq 90
+    expect(bomba_chocada.get_vida).to eq 0
+    expect(bomba_chocada.get_masa).to eq 45
+
+  end
+
 end
