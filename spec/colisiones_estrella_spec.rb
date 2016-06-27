@@ -82,5 +82,15 @@ describe 'Colisiones de la estrella' do
 
   end
 
+  it 'el asteroide deberia recibir efecto nulo al ser chocado por una estrella' do
+
+    estrella_chocante = Estrella.new
+    asteroide_chocado = Asteroide.new
+    estrella_chocante.colisionar_con asteroide_chocado
+    expect(asteroide_chocado.get_vida).to eq 100
+    expect(asteroide_chocado.get_vida).to eq 100
+
+  end
+
 
 end
