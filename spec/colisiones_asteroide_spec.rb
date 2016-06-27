@@ -83,4 +83,14 @@ describe 'Colisiones del asteroide' do
 
   end
 
+  it 'el asteroide chocado deberia aplicarse efecto nulo al ser chocado por otro asteroide' do
+
+    asteroide_chocante = Asteroide.new
+    asteroide_chocado = Asteroide.new
+    asteroide_chocante.colisionar_con asteroide_chocado
+    expect(asteroide_chocado.get_vida).to eq 100
+    expect(asteroide_chocado.get_masa).to eq 100
+
+  end
+
 end
