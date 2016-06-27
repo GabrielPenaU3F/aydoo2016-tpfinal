@@ -61,4 +61,21 @@ describe 'Casos minimos de colisiones enviados por el profesor' do
 
   end
 
+  #Caso minimo: bomba vs asteroide
+  it 'deberia resolver correctamente la colision bomba 200-100 vs asteroide 30-100' do
+
+    bomba_chocante = Bomba.new
+    asteroide_chocado = Asteroide.new
+    bomba_chocante.set_vida 200
+    bomba_chocante.set_masa 100
+    asteroide_chocado.set_vida 30
+    asteroide_chocado.set_masa 100
+    bomba_chocante.colisionar_con asteroide_chocado
+    expect(bomba_chocante.get_vida).to eq 0
+    expect(bomba_chocante.get_masa).to eq 100
+    expect(asteroide_chocado.get_vida).to eq 30
+    expect(asteroide_chocado.get_masa).to eq 100
+
+  end
+
 end
