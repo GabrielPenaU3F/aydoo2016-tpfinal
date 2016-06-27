@@ -33,9 +33,15 @@ class Colision
     completar_interaciones_nave(objeto_chocado, objeto_chocante)
     completar_interacciones_misil(objeto_chocado, objeto_chocante)
     completar_interacciones_bomba(objeto_chocado, objeto_chocante)
+    completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
 
 
     return @mapa_efectos[clave_choque]
+
+  end
+
+  def completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
+    @mapa_efectos['@asteroide#nave'] = [Asteroide.new.method(:aumentar_masa).unbind, objeto_chocado.get_masa/10, Nave.new.method(:disminuir_masa).unbind, objeto_chocante.get_masa/2]
 
   end
 
