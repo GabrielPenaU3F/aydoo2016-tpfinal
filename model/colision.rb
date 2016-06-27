@@ -36,7 +36,7 @@ class Colision
 
   def construir_hash(objeto_chocado, objeto_chocante)
     @mapa_efectos = Hash.new
-    completar_interaciones_nave(objeto_chocado, objeto_chocante)
+    completar_interacciones_nave(objeto_chocado, objeto_chocante)
     completar_interacciones_misil(objeto_chocado, objeto_chocante)
     completar_interacciones_bomba(objeto_chocado, objeto_chocante)
     completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
@@ -80,7 +80,7 @@ class Colision
     @mapa_efectos['@misil#estrella'] = [Misil.new.method(:aplicar_efecto_nulo).unbind, 0, Estrella.new.method(:aplicar_efecto_nulo).unbind, 0]
   end
 
-  def completar_interaciones_nave(objeto_chocado, objeto_chocante)
+  def completar_interacciones_nave(objeto_chocado, objeto_chocante)
     @mapa_efectos['@nave#nave'] = [Nave.new.method(:disminuir_vida).unbind, 100, Nave.new.method(:disminuir_vida).unbind, 100]
     @mapa_efectos['@nave#misil'] = [Nave.new.method(:disminuir_vida).unbind, 80, Misil.new.method(:disminuir_vida).unbind, 100]
     @mapa_efectos['@nave#bomba'] = [Nave.new.method(:disminuir_vida).unbind, 50, Bomba.new.method(:disminuir_vida).unbind, 100]
