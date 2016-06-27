@@ -34,8 +34,12 @@ class Colision
     completar_interacciones_estrella(objeto_chocado, objeto_chocante)
 
     #El array devuelto funciona asi: [metodo a ejecutar del chocante, argumento, metodo a ejecutar del chocado, argumento]
-    return @mapa_efectos[clave_choque]
+    return obtener_interaccion(clave_choque)
 
+  end
+
+  def obtener_interaccion(clave_choque)
+    return @mapa_efectos[clave_choque]
   end
 
   def completar_interacciones_estrella(objeto_chocado, objeto_chocante)
