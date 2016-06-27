@@ -41,4 +41,14 @@ describe 'Colisiones de la estrella' do
 
   end
 
+  it 'el misil deberia recibir efecto nulo al ser chocado por una estrella' do
+
+    estrella_chocante = Estrella.new
+    misil_chocado = Misil.new
+    estrella_chocante.colisionar_con misil_chocado
+    expect(misil_chocado.get_vida).to eq 100
+    expect(misil_chocado.get_masa).to eq 100
+
+  end
+
 end
