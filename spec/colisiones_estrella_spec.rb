@@ -21,4 +21,13 @@ describe 'Colisiones de la estrella' do
 
   end
 
+  it 'la nave chocada deberia curarse una cantidad igual a la vida de la estrella' do
+
+    estrella_chocante = Estrella.new
+    nave_chocada = Nave.new
+    estrella_chocante.colisionar_con nave_chocada
+    expect(nave_chocada.get_vida).to eq 200
+
+  end
+
 end
