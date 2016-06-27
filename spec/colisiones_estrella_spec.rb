@@ -56,8 +56,19 @@ describe 'Colisiones de la estrella' do
 
     estrella_chocante = Estrella.new
     bomba_chocada = Bomba.new
+    estrella_chocante.set_vida 1000000
     estrella_chocante.colisionar_con bomba_chocada
     expect(estrella_chocante.get_vida).to eq 0
+
+  end
+
+
+  it 'la bomba deberia recibir 100 de danio al ser chocada por una estrella' do
+
+    estrella_chocante = Estrella.new
+    bomba_chocada = Bomba.new
+    estrella_chocante.colisionar_con bomba_chocada
+    expect(bomba_chocada.get_vida).to eq 0
 
   end
 
