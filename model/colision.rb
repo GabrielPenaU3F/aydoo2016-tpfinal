@@ -15,13 +15,22 @@ class Colision
 
   def ejecutar_choque objeto_chocante, objeto_chocado
 
-    clave_choque = ('@' + objeto_chocante.get_representacion + '#' + objeto_chocado.get_representacion)
+    clave_choque = generar_clave(objeto_chocado, objeto_chocante)
     resultado = obtener_metodos_y_parametros_a_aplicar_en_el_choque(clave_choque, objeto_chocante, objeto_chocado)
+    llamar_metodos(objeto_chocado, objeto_chocante, resultado)
+
+  end
+
+  def llamar_metodos(objeto_chocado, objeto_chocante, resultado)
     metodo_chocante = resultado[0].bind objeto_chocante
     metodo_chocante.call resultado[1]
     metodo_chocado = resultado[2].bind objeto_chocado
     metodo_chocado.call resultado[3]
+  end
 
+  #Este metodo pese a tener solo una linea esta extraido como tal para facilitar la lectura del diagrama de secuencia
+  def generar_clave(objeto_chocado, objeto_chocante)
+    clave_choque = ('@' + objeto_chocante.get_representacion + '#' + objeto_chocado.get_representacion)
   end
 
   def obtener_metodos_y_parametros_a_aplicar_en_el_choque(clave_choque, objeto_chocante, objeto_chocado)
@@ -38,6 +47,7 @@ class Colision
 
   end
 
+  #Este metodo pese a tener solo una linea esta extraido como tal para facilitar la lectura del diagrama de secuencia
   def obtener_interaccion(clave_choque)
     return @mapa_efectos[clave_choque]
   end
