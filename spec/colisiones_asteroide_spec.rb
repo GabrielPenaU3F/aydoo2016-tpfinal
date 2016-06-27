@@ -104,4 +104,13 @@ describe 'Colisiones del asteroide' do
 
   end
 
+  it 'la estrella deberia perder toda su vida al set chocada por un asteroide' do
+
+    asteroide_chocante = Asteroide.new
+    estrella_chocada = Estrella.new
+    asteroide_chocante.colisionar_con estrella_chocada
+    expect(estrella_chocada.get_vida).to eq 0
+
+  end
+
 end
