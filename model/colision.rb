@@ -27,16 +27,19 @@ class Colision
   def obtener_metodos_y_parametros_a_aplicar_en_el_choque(clave_choque, objeto_chocante, objeto_chocado)
 
     @mapa_efectos = Hash.new
-
-    #El array devuelto funciona asi: [metodo a ejecutar del chocante, argumento, metodo a ejecutar del chocado, argumento]
-
     completar_interaciones_nave(objeto_chocado, objeto_chocante)
     completar_interacciones_misil(objeto_chocado, objeto_chocante)
     completar_interacciones_bomba(objeto_chocado, objeto_chocante)
     completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
+    completar_interacciones_estrella(objeto_chocado, objeto_chocante)
 
-
+    #El array devuelto funciona asi: [metodo a ejecutar del chocante, argumento, metodo a ejecutar del chocado, argumento]
     return @mapa_efectos[clave_choque]
+
+  end
+
+  def completar_interacciones_estrella(objeto_chocado, objeto_chocante)
+    @mapa_efectos['@estrella#nave'] = [Estrella.new.method(:disminuir_vida).unbind, objeto_chocante.get_vida, Nave.new.method(:aumentar_vida).unbind, objeto_chocante.get_vida]
 
   end
 
@@ -46,7 +49,6 @@ class Colision
     @mapa_efectos['@asteroide#bomba'] = [Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0, Bomba.new.method(:disminuir_vida).unbind, objeto_chocado.get_vida]
     @mapa_efectos['@asteroide#asteroide'] = [Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0, Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0]
     @mapa_efectos['@asteroide#estrella'] = [Asteroide.new.method(:aplicar_efecto_nulo).unbind, 0, Estrella.new.method(:disminuir_vida).unbind, objeto_chocado.get_vida]
-
   end
 
   def completar_interacciones_bomba(objeto_chocado, objeto_chocante)
