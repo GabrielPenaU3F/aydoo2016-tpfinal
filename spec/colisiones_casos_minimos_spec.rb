@@ -14,7 +14,7 @@ describe 'Casos minimos de colisiones enviados por el profesor' do
   #uno de los casos de prueba enviados por el profesor
 
   #Caso minimo: nave vs asteroide
-  it 'deberia resolver correctamente nave 100-100 vs asteroide 50-100' do
+  it 'deberia resolver correctamente la colision nave 100-100 vs asteroide 50-100' do
 
     nave_chocante = Nave.new
     asteroide_chocado = Asteroide.new
@@ -24,6 +24,23 @@ describe 'Casos minimos de colisiones enviados por el profesor' do
     expect(nave_chocante.get_masa).to eq 50
     expect(asteroide_chocado.get_vida).to eq 50
     expect(asteroide_chocado.get_masa).to eq 110
+
+  end
+
+  #Caso minimo: estrella vs misil
+  it 'deberia resolver correctamente la colision estrella 50-10 vs misil 10-30' do
+
+    estrella_chocante = Estrella.new
+    misil_chocado = Misil.new
+    estrella_chocante.set_vida 50
+    estrella_chocante.set_masa 10
+    misil_chocado.set_vida 10
+    misil_chocado.set_masa 30
+    estrella_chocante.colisionar_con misil_chocado
+    expect(estrella_chocante.get_vida).to eq 50
+    expect(estrella_chocante.get_masa).to eq 10
+    expect(misil_chocado.get_vida).to eq 10
+    expect(misil_chocado.get_masa).to eq 30
 
   end
 
