@@ -49,9 +49,7 @@ class Colision
     @mapa_efectos['@bomba#estrella'] = [Bomba.new.method(:disminuir_vida).unbind, 100, Estrella.new.method(:disminuir_vida).unbind, objeto_chocado.get_vida]
 
 
-    resultado = @mapa_efectos[clave_choque]
-
-    return resultado
+    return @mapa_efectos[clave_choque]
 
   end
 
