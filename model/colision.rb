@@ -15,8 +15,9 @@ class Colision
 
   def ejecutar_choque objeto_chocante, objeto_chocado
 
+    construir_hash(objeto_chocado, objeto_chocante)
     clave_choque = generar_clave(objeto_chocado, objeto_chocante)
-    resultado = obtener_metodos_y_parametros_a_aplicar_en_el_choque(clave_choque, objeto_chocante, objeto_chocado)
+    resultado = obtener_interaccion(clave_choque)
     llamar_metodos(objeto_chocado, objeto_chocante, resultado)
 
   end
@@ -30,21 +31,16 @@ class Colision
 
   #Este metodo pese a tener solo una linea esta extraido como tal para facilitar la lectura del diagrama de secuencia
   def generar_clave(objeto_chocado, objeto_chocante)
-    clave_choque = ('@' + objeto_chocante.get_representacion + '#' + objeto_chocado.get_representacion)
+    return ('@' + objeto_chocante.get_representacion + '#' + objeto_chocado.get_representacion)
   end
 
-  def obtener_metodos_y_parametros_a_aplicar_en_el_choque(clave_choque, objeto_chocante, objeto_chocado)
-
+  def construir_hash(objeto_chocado, objeto_chocante)
     @mapa_efectos = Hash.new
     completar_interaciones_nave(objeto_chocado, objeto_chocante)
     completar_interacciones_misil(objeto_chocado, objeto_chocante)
     completar_interacciones_bomba(objeto_chocado, objeto_chocante)
     completar_interacciones_asteroide(objeto_chocado, objeto_chocante)
     completar_interacciones_estrella(objeto_chocado, objeto_chocante)
-
-    #El array devuelto funciona asi: [metodo a ejecutar del chocante, argumento, metodo a ejecutar del chocado, argumento]
-    return obtener_interaccion(clave_choque)
-
   end
 
   #Este metodo pese a tener solo una linea esta extraido como tal para facilitar la lectura del diagrama de secuencia
